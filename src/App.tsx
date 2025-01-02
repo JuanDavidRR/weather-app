@@ -5,7 +5,6 @@ import Spiner from "./components/Spinner/Spiner";
 import WeatherDetail from "./components/WeatherDetail/WeatherDetail";
 import useSearch from "./hooks/useSearch";
 function App() {
-  
   const { loading, notFound, weather, isWeatherData, fetchData } = useSearch();
   return (
     <>
@@ -15,8 +14,11 @@ function App() {
         <Form fetchData={fetchData} />
         {/* column 2 */}
         {loading && <Spiner />}
-        {isWeatherData && <WeatherDetail weather={weather} />}
-        {notFound && <Alert alert='City has not been found' /> }
+        {notFound ? (
+          <Alert alert="City has not been found" />
+        ) : (
+          isWeatherData && <WeatherDetail weather={weather} />
+        )}
       </section>
     </>
   );

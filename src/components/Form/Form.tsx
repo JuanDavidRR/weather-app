@@ -34,6 +34,8 @@ function Form({ fetchData }: FormProps) {
     if (Object.values(search).includes("")) {
       setAlert("All fields are required");
       return;
+    } else {
+      setAlert("");
     }
     fetchData(search);
   };

@@ -65,6 +65,7 @@ export default function useSearch() {
       const result = Weather.safeParse(data);
       if (result.success) {
         setWeather(result.data);
+        setNotFound(false);
       }
 
       //valibot data
